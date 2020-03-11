@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Bot Plugin</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<author url="https://sillyness.co/">Chris J. Davis</author>
+	<version>1.0</version>
+	<url>https://sillyness.co</url>
+	<description><![CDATA[Simple system for tracking and awarding DND style points.]]></description>
+	<copyright>2020</copyright>
+</pluggable>
