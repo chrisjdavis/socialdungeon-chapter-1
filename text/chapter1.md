@@ -1,3 +1,5 @@
+# 1 Start at the beginning
+
 So as I mentioned in an earlier post, it's time for a good old SSWI tutorial series. This time we're going to look at the process of building [Social Dungeon](https://sillyness.co/socialdm). In this first chapter, we're going to look at how I built the Twitter Bot. Each of these "chapters" will have a corresponding github repo that will house all the code we are covering.
 
 For this chapter you can <a href="https://github.com/chrisjdavis/socialdungeon-chapter-1" title="Building Social Dungeon: Chapter 1">find the repo here</a>. Happy hacking.
