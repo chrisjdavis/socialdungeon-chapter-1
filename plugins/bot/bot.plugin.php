@@ -84,17 +84,17 @@ class Bot extends Plugin
 	}
 
   public function theme_route_display_get_mentions($theme, $params) {
-  	$game = new Gamer();
   	$connection = $this->auth_twitter( self::TWITKEY, self::TWITSECRET );
   	$data = $connection->get( 'statuses/mentions_timeline', ["count" => 100] );
   	$regex = "/@+([a-zA-Z0-9_]+)/";
   	$commands = array( 'help', 'mystats' );
+
   	$cats = array(
   		'strength', 'wisdom', 'charisma', 'defensive',
   		'constitution', 'dexterity', 'intelligence',
   		'willpower', 'perception', 'luck'
   	);
-  	// Loop through the mentions returned.
+
   	foreach( $data as $mention ) {
   		$bits = array_filter(
   			explode( ' ' , preg_replace( $regex, '', $mention->text ))
@@ -102,16 +102,13 @@ class Bot extends Plugin
 
   		$poop = array_pop($bits);
 
-  		// Check to see if we have seen this mention before.
   		if( $this->exists( $mention->id, '{person_stats}' ) == false ) {
   			if( count($mention->entities->user_mentions) > 1 ) {
 
-  				// This is an award or deduction.
   				$award = array_filter(
   					explode( ' ' , preg_replace( $regex, '', $mention->text ))
   				);
 
-  				// Make sure we have all the bits we need to create an award.
   				if( count( $award ) > 2 ) {
   					$points = reset( $bits );
   					$category = array_pop( $bits );
@@ -120,8 +117,6 @@ class Bot extends Plugin
   					$category = array_pop( $award );
   				}
 
-  				// Next we check to make sure the category in the mention is
-  				// one we support.
   				if( in_array($category, $cats) ) {
   					$args = array(
   						'awarded_to'	=>	$mention->in_reply_to_screen_name,
